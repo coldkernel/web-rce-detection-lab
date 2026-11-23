@@ -1,0 +1,6 @@
+lab/sessions/*
+!lab/sessions/.gitkeep
+lab/app/uploads/*
+!lab/app/uploads/.gitkeep
+lab/logs/
+__pycache__/

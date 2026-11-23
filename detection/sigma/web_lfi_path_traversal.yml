@@ -1,0 +1,31 @@
+title: Path traversal or PHP wrapper in web request
+id: 7c2f1a3e-9b4d-4e8a-a1c5-3f6d2b8e9a01
+status: experimental
+description: >
+  Flags directory traversal in the query string, including the "....//" form that
+  survives a single-pass "../" filter, and PHP stream wrappers used to read source.
+  In the lab this fires on the Local File Inclusion step.
+references:
+  - https://github.com/coldkernel/file-upload-to-rce-lab
+author: Eren Yetim
+date: 2026/11/23
+logsource:
+  category: webserver
+detection:
+  selection:
+    cs-uri-query|contains:
+      - '../'
+      - '..%2f'
+      - '..%2F'
+      - '....//'
+      - 'php://'
+  condition: selection
+fields:
+  - c-ip
+  - cs-uri-query
+falsepositives:
+  - Applications that legitimately accept relative paths in a parameter
+level: high
+tags:
+  - attack.initial_access
+  - attack.t1190

@@ -1,0 +1,30 @@
+title: Upload directory referenced through a page include parameter
+id: 2d6a8f47-3c1b-4e5d-9a7f-8b4c2e1d6f03
+status: experimental
+description: >
+  A page or template parameter pointing into the uploads directory means a user-supplied
+  file is being handed to include/require. Combined with any upload, this is a web shell
+  being loaded.
+author: Eren Yetim
+date: 2026/11/23
+logsource:
+  category: webserver
+detection:
+  selection_param:
+    cs-uri-query|contains:
+      - 'page='
+      - 'file='
+      - 'template='
+      - 'include='
+  selection_dir:
+    cs-uri-query|contains: 'uploads/'
+  condition: selection_param and selection_dir
+fields:
+  - c-ip
+  - cs-uri-query
+falsepositives:
+  - Applications that serve uploads through an include-style parameter by design
+level: high
+tags:
+  - attack.persistence
+  - attack.t1505.003

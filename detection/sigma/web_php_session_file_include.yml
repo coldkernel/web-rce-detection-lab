@@ -1,0 +1,26 @@
+title: PHP session file referenced in a web request
+id: 4b9e7d21-5a3c-4f0e-b8d6-1e2a7c9f5b02
+status: experimental
+description: >
+  A request that names a PHP session file (sess_<id>) in a parameter is an attempt to
+  include attacker-influenced session data as code. No legitimate page load references
+  the session store by path.
+author: Eren Yetim
+date: 2026/11/23
+logsource:
+  category: webserver
+detection:
+  selection:
+    cs-uri-query|contains: 'sess_'
+  condition: selection
+fields:
+  - c-ip
+  - cs-uri-query
+falsepositives:
+  - Unlikely; a parameter value that happens to contain "sess_"
+level: critical
+tags:
+  - attack.initial_access
+  - attack.t1190
+  - attack.persistence
+  - attack.t1505.003

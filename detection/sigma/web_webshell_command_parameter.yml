@@ -1,0 +1,26 @@
+title: Shell command passed in a web request parameter
+id: 9e1c5b73-8d2a-4f6e-a3b9-6c7d1e4a2f04
+status: experimental
+description: >
+  Detects a short command-style parameter (c, cmd, exec, command) whose value is a
+  recon or shell binary. This is the operator talking to a web shell after the include
+  succeeded; it is the request that produced the `id` output in the lab.
+author: Eren Yetim
+date: 2026/11/23
+logsource:
+  category: webserver
+detection:
+  selection:
+    cs-uri-query|re: '(^|[?&])(c|cmd|exec|command)=(id|whoami|uname|hostname|cat|ls|pwd|wget|curl|nc|ncat|bash|sh|python|perl)(%20|\+|&|$)'
+  condition: selection
+fields:
+  - c-ip
+  - cs-uri-query
+falsepositives:
+  - A parameter named c, cmd or exec carrying one of these words as ordinary data
+level: critical
+tags:
+  - attack.execution
+  - attack.t1059
+  - attack.persistence
+  - attack.t1505.003

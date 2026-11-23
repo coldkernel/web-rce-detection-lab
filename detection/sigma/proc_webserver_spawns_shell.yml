@@ -1,0 +1,52 @@
+title: Web server process spawns a shell or recon binary
+id: 5a3d9c18-6e4b-4a2f-b7c1-2d8e5f9a3b05
+status: experimental
+description: >
+  The web server or PHP runtime starting /bin/sh, bash, id, whoami or a network tool.
+  A web server has almost no legitimate reason to do this, so the rule is high confidence
+  and catches the chain at its last step regardless of how the earlier steps looked.
+  Not captured in this repository's lab run (the lab ran on macOS without process
+  auditing); see the README for how to capture it with auditd or Sysmon for Linux.
+author: Eren Yetim
+date: 2026/11/23
+logsource:
+  product: linux
+  category: process_creation
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '/php'
+      - '/php-fpm'
+      - '/php-cgi'
+      - '/apache2'
+      - '/httpd'
+      - '/nginx'
+  selection_child:
+    Image|endswith:
+      - '/sh'
+      - '/bash'
+      - '/dash'
+      - '/id'
+      - '/whoami'
+      - '/uname'
+      - '/nc'
+      - '/ncat'
+      - '/curl'
+      - '/wget'
+      - '/python'
+      - '/python3'
+      - '/perl'
+  condition: selection_parent and selection_child
+fields:
+  - ParentImage
+  - Image
+  - CommandLine
+  - User
+falsepositives:
+  - Deployment or health-check scripts that legitimately shell out from the web runtime
+level: critical
+tags:
+  - attack.execution
+  - attack.t1059.004
+  - attack.persistence
+  - attack.t1505.003

@@ -1,0 +1,14 @@
+[web_lfi_path_traversal] T1190
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//....//sessions/sess_d84ba730dd9169596eeb38cf9be4770e&c=id  -> 200
+[web_php_session_file_include] T1190, T1505.003
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//....//sessions/sess_d84ba730dd9169596eeb38cf9be4770e&c=id  -> 200
+[web_webshell_command_parameter] T1059, T1505.003
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//....//sessions/sess_d84ba730dd9169596eeb38cf9be4770e&c=id  -> 200
+[web_lfi_path_traversal] T1190
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//uploads/notes.txt&c=uname%20-a  -> 200
+[web_include_of_upload_dir] T1505.003
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//uploads/notes.txt&c=uname%20-a  -> 200
+[web_webshell_command_parameter] T1059, T1505.003
+    Tue Nov 24 00:00:10 2026  127.0.0.1  GET /index.php?page=....//uploads/notes.txt&c=uname%20-a  -> 200
+
+9 request lines scanned, 6 rule hits
